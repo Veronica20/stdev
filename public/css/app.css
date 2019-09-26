@@ -1,0 +1,84 @@
+.quest {
+  padding: 15px 20%;
+  background-image: url(../images/quest.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  display: table;
+  vertical-align: middle;
+  font-size: 18px;
+  line-height: 22px;
+  min-height: 80px;
+  font-family: Arial, Verdana, "Helvetica CY", sans-serif;
+  margin-bottom: 20px;
+  width: 100%;
+  color: #fff;
+
+}
+
+.quest span {
+  display: table-cell;
+  vertical-align: middle;
+  color: white;
+}
+
+.answ_row .answ:first-child {
+  padding-left: 13%;
+}
+
+.answ {
+  cursor: pointer;
+}
+
+.answ {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+  float: left;
+}
+
+body {
+  font-family: Verdana, Arial, "Helvetica CY", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  line-height: 17px;
+  background-color: #071319;
+  width: 100%;
+}
+
+body{
+  color: #fff;
+}
+
+.answ_inside {
+  padding: 0px 5%;
+  background-image: url(../images/sprite_ans.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 310px;
+  text-align: center;
+  display: table;
+  width: 340px;
+  font-size: 18px;
+  line-height: 22px;
+  height: 40px;
+  overflow: hidden;
+  font-family: Arial, Verdana, "Helvetica CY", sans-serif;
+  margin: 0 auto;
+}
+
+.answ_text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+}
+.ahov .answ_inside:hover {
+  background-position: 0 -52px;
+  /* -webkit-tap-highlight-color: rgba(0,0,0,0); */
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.inline_block{
+  display: inline-block;
+}
