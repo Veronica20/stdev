@@ -108,7 +108,7 @@ class AdminController
 
         if(!is_null($question_info)){
             if($answer){
-                $answer_info = $question_info->answers()->where('id', 39)->first();
+                $answer_info = $question_info->answers()->where('id', $answer)->first();
 
                 if(is_null($answer_info))
                     return abort(404);

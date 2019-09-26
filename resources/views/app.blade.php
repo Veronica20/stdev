@@ -22,6 +22,10 @@
 <div class="container">
     @if(\Auth::check())
         <div class="text-right mt-3 mb-5 " >
+
+            @if(\Auth::user()->role)
+                <a class="btn btn-success inline_block mr-3" href="{{ route('questions') }}"> Հարցեր </a>
+            @endif
             <a class="btn btn-success inline_block mr-3" href="{{ route('score') }}">Միավորների հաշիվ        </a>
             <a class="btn btn-success inline_block mr-3" href="{{ route('game') }}"> Խաղալ </a>
             <p class="inline_block"> {{ \Auth::user()->name .' '. \Auth::user()->surname }} </p>

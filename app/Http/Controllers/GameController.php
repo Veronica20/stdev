@@ -14,6 +14,7 @@ use App\Question;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class GameController extends Controller
@@ -21,17 +22,28 @@ class GameController extends Controller
     public function game()
     {
         $questions = Question::query()
+            ->whereHas('answers', function ($query) {
+                $query->where('is_correct', 1);
+            })
             ->groupBy('score')
             ->orderByRaw('RAND()')
             ->limit(5)
             ->get()
+            ->sortBy(function(Question $question) {
+                return $question->score;
+            })
         ;
 
-        Session::put('questions', $questions);
-        Session::put('step', 0);
-        Session::put('score', 0);
+        if(!$questions->isEmpty() and count($questions) >=5){
+            Session::put('questions', $questions);
+            Session::put('step', 0);
+            Session::put('score', 0);
 
-        return redirect()->route('question');
+            return redirect()->route('question');
+        }else{
+            return view('users.noGame');
+        }
+
     }
 
     public function question()
@@ -66,8 +78,8 @@ class GameController extends Controller
             }
 
         } else {
-            $currentQuestion = $questions[$step];
 
+            $currentQuestion = $questions[$step];
 
             foreach ($currentQuestion->answers as $answer) {
                 if($answer->is_correct){

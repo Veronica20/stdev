@@ -15,6 +15,7 @@ Route::get('/', 'GameController@game')->name('game')->middleware('CheckLogin');
 Route::get('/game', 'GameController@question')->name('question')->middleware('CheckLogin');
 Route::post('/game', 'GameController@answer')->name('answer')->middleware('CheckLogin');
 Route::get('/score','GameController@score')->name('score');
+Route::get('/noGame','GameController@noGame')->name('noGame');
 Route::match(['get', 'post'], '/login', 'LoginController@login')->name('login');
 Route::match(['get', 'post'], '/registration', 'LoginController@registration')->name('registration');
 Route::get('/logout','LoginController@logout')->name('logout');
